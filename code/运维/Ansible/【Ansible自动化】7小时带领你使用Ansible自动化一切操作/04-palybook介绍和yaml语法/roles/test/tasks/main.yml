@@ -1,0 +1,5 @@
+---
+
+- debug: msg="I'm test role"
+  changed_when: true
+  notify: test handler

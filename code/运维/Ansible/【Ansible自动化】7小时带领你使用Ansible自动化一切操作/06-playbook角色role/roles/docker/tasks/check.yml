@@ -1,0 +1,6 @@
+---
+
+- name: Check docker socket.
+  wait_for:
+    path: /var/run/docker.sock
+    state: present

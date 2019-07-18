@@ -1,0 +1,46 @@
+--- 
+
+- hosts: localhost
+  vars:
+   - test_vars: 'test vars'
+
+#  tasks:
+#   - debug: msg="I'm head tasks."
+
+  pre_tasks:
+   - debug: msg="I'm pre tasks."
+     changed_when: true
+     notify: pre handler
+   - debug: msg="I'm sec."
+  
+  roles:
+   - test
+  
+  tasks:
+   - debug: "msg='I''m first tasks.{{ test_vars }}'"
+     changed_when: true
+     notify: task handler
+   - debug: msg="I'm sec tasks."
+
+  post_tasks:
+   - debug: msg="I'm post tasks."
+     changed_when: true
+     notify: post handler
+
+#  tasks:
+#   - debug: msg="I'm last tasks."
+#     changed_when: true
+#     notify: last handler
+  
+  handlers:
+   - name: pre handler
+     debug: msg="I'm pre handler"
+
+   - name: task handler
+     debug: msg="I'm task handler"
+
+   - name: post handler
+     debug: msg="I'm post handler"
+
+   - name: last handler
+     debug: msg="I'm last handler"

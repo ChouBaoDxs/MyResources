@@ -1,0 +1,12 @@
+---
+
+- name: Ensure docker history packages are removed.
+  yum: "name={{ item }} state=removed"
+  with_item:
+    - docker
+    - docker-common
+    - docker-selinux
+    - docker-engine
+
+- name: Clean yum cache.
+  shell: yum clean all && rm -rf /var/cache/yum/

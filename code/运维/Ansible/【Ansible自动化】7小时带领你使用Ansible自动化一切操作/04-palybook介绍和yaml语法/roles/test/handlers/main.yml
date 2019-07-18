@@ -1,0 +1,4 @@
+---
+
+- name: test handler
+  debug: msg="I'm test role handler"

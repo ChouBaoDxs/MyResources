@@ -1,0 +1,5 @@
+---
+
+- name: Ensure docker is started and enabled at boot.
+  systemd: name=docker state=started enabled=true
+  when: docker_start

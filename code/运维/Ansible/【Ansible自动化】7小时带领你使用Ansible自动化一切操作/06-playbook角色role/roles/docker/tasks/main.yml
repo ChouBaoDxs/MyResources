@@ -1,0 +1,9 @@
+---
+# tasks file for docker
+- import_tasks: clean_docker.yml
+- import_tasks: install_docker_repo.yml
+- import_tasks: config_docker.yml
+- import_tasks: install_docker.yml
+- name: manager service
+  import_tasks: service.yml
+- import_tasks: check.yml

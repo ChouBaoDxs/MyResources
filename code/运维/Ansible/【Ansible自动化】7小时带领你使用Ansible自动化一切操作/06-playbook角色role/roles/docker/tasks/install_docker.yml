@@ -1,0 +1,14 @@
+---
+
+- name: Ensure docker-ce are installed.
+  yum: "name={{ item }} state=installed update_cache=yes enablerepo=docker-ce-stable"
+  with_items: 
+    - docker-ce
+    - docker-compose
+
+# - name: Ensure docker-ce are installed.
+#   yum: 
+#     name: docker-ce
+#     state: installed
+#     update_cache: true
+#     enablerepo: docker-ce-stable
